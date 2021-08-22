@@ -1,0 +1,15 @@
+
+
+<div *ngIf="loggedIn == false" style="margin: 10%;">
+  <button mat-raised-button routerLink="/login">Login</button>
+  <button mat-raised-button color="primary" style="float: right;" routerLink="/register">Register</button>
+</div>
+
+<div *ngIf="loggedIn == true">
+  Hi{{userProfile.user.fullName}}
+  <br>
+  <button *ngIf="userProfile.user.role == 'manager'" mat-raised-button
+   color="primary" style="float: right;" routerLink="/addBook">Add book</button>
+  <button mat-raised-button color="warn" (click) ="logout()"> Log Out </button>
+  <app-books></app-books>
+</div>
